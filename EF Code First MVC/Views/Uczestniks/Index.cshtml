@@ -1,0 +1,69 @@
+﻿@model IEnumerable<Uczestnik>
+
+@{
+    ViewBag.Title = "Uczestnicy konferencji";
+}
+
+<h2></h2>
+
+<p>
+    @Html.ActionLink("Dodaj nowy", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Imie)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Nazwisko)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.takObiad)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.takNocleg)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.takOplata)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.dataPrzyjazdu)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.dataOdjazdu)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Imie)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Nazwisko)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.takObiad)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.takNocleg)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.takOplata)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.dataPrzyjazdu)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.dataOdjazdu)
+        </td>
+        <td>
+            @Html.ActionLink("Edytuj", "Edit", new { id=item.ID }) |
+            @Html.ActionLink("Szczegóły", "Details", new { id=item.ID }) |
+            @Html.ActionLink("Usuń", "Delete", new { id=item.ID })
+        </td>
+    </tr>
+}
+
+</table>
